@@ -1,0 +1,22 @@
+.custom-sidenav {
+    background-color: #3f51b5;
+    width: 230px;
+
+}
+
+.custom-sidenav-container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.custom-nav-list {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-list-item {
+    color: white;
+    text-decoration: none;
+}

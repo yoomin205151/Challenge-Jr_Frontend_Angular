@@ -1,0 +1,79 @@
+<div style="width: 70%;margin: 40px auto;">
+    <h1>LISTA COBERTURAS</h1>
+
+    <button mat-raised-button (click)="openDialog()" color="primary">CREAR</button>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+      
+            <!-- Position Column -->
+          <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="ResponsabilidadCivil">
+            <th mat-header-cell *matHeaderCellDef> RESPONSABILIDAD CIVIL </th>
+            <td mat-cell *matCellDef="let element"> {{element.responsabilidadCivil}} </td>
+          </ng-container>
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="DestruccionTotalAccidentes">
+            <th mat-header-cell *matHeaderCellDef> DESTRUCCION TOTAL ACCIDENTES </th>
+            <td mat-cell *matCellDef="let element"> {{element.destruccionTotalAccidentes}} </td>
+          </ng-container>
+            
+          <!-- Position Column -->
+          <ng-container matColumnDef="CristalesLaterales">
+            <th mat-header-cell *matHeaderCellDef> CRISTALES LATERALES </th>
+            <td mat-cell *matCellDef="let element"> {{element.cristalesLaterales}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="LunetasParabrisas">
+            <th mat-header-cell *matHeaderCellDef> LUNETAS PARABRISAS </th>
+            <td mat-cell *matCellDef="let element"> {{element.lunetasParabrisas}} </td>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Cerraduras">
+            <th mat-header-cell *matHeaderCellDef> CERRADURAS </th>
+            <td mat-cell *matCellDef="let element"> {{element.cerraduras}} </td>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef style="width: 80px;"> ACCIONES </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="openEditDialog(element)" color="primary" aria-label="Example icon button with a home icon">
+                    <mat-icon color="primary">edit</mat-icon>                   
+                </button>
+                <button mat-icon-button (click)="openDeleteDialog(element)" color="primary" aria-label="Example icon button with a home icon">
+                  <mat-icon color="warn">delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons 
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+      
+</div>

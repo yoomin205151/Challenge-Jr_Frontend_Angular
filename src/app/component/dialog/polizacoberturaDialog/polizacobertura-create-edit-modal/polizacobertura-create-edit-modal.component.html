@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{ tittleAction }} DetallePoliza</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="formPolizaCobertura" action="">
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile style="padding-top: 35px;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Poliza</mat-label>
+                    <mat-select formControlName="polizaId">
+                      <mat-option *ngFor="let item of listPoliza" [value]="item.id">
+                        {{item.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Cobertura</mat-label>
+                    <mat-select formControlName="coberturaId">
+                      <mat-option *ngFor="let item of listCobertura" [value]="item.id">
+                        {{item.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Monto Asegurado</mat-label>
+                    <input matInput formControlName="montoAsegurado" placeholder="Ingrese Monto" autocomplete="off" type="number">
+                  </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Cerrar</button>
+  <button mat-raised-button color="primary" (click)="addEditPolizaCobertura()" [disabled]="formPolizaCobertura.invalid">{{ buttonAction }}</button>
+</div>

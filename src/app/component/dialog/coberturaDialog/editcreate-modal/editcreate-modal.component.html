@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>{{ tittleAction }} Cobertura</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="formCobertura" action="">
+        <mat-grid-list cols="1" rowHeight="60px">
+            <mat-grid-tile style="padding-top: 35px;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre" placeholder="Ingrese Nombre" autocomplete="off">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-checkbox formControlName="responsabilidadCivil" class="example-margin">Responsabilidad Civil</mat-checkbox>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-checkbox formControlName="destruccionTotalAccidentes" class="example-margin">Destrucción Total por Accidentes</mat-checkbox>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-checkbox formControlName="cristalesLaterales" class="example-margin">Cristales Laterales</mat-checkbox>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-checkbox formControlName="lunetasParabrisas" class="example-margin">Lunetas y Parabrisas</mat-checkbox>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-checkbox formControlName="cerraduras" class="example-margin">Cerraduras</mat-checkbox>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Cerrar</button>
+  <button mat-raised-button color="primary" (click)="addEditCobertura()" [disabled]="formCobertura.invalid">{{ buttonAction }}</button>
+</div>
